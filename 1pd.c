@@ -25,3 +25,10 @@ int main() {
   return 0;
 }
 
+//output:
+//Parent process:
+//PID: 25762
+//Parent PID: 25755
+//Child process:
+//PID: 25763
+//Parent PID: 25762
