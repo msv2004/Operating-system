@@ -1,0 +1,55 @@
+In Linux, file access permissions are a crucial part of the operating system's security model.
+They determine who can perform various operations (read, write, execute) on a file or directory.
+These permissions are typically represented in the form of a 10-character string, with the first 
+character denoting the type of file, and the next nine characters representing the permission settings for the owner, group, and others. 
+Here's an illustration of the various file access permissions and the types of users in Linux:
+
+1. **File Types:**
+
+   - `-` (hyphen): Represents a regular file.
+   - `d` (directory): Represents a directory.
+   - `l` (symlink): Represents a symbolic link.
+   - `c` (character device file): Represents a character device.
+   - `b` (block device file): Represents a block device.
+   - `p` (named pipe): Represents a named pipe.
+   - `s` (socket): Represents a socket.
+
+2. **File Permissions:**
+
+   - `r` (read): Allows reading the file or listing the directory contents.
+   - `w` (write): Allows modifying the file or creating, deleting, or renaming files within the directory.
+   - `x` (execute): Allows executing the file as a program or entering a directory.
+   - `-` (hyphen): Represents a lack of permission.
+
+3. **User Types:**
+
+   - **Owner:** The user who owns the file or directory.
+   - **Group:** Users who belong to the same group as the owner.
+   - **Others:** Any other user on the system.
+
+4. **Combining File Permissions:**
+
+   - The permissions string typically appears as follows:
+   
+     ```
+     -rwxrwxrwx
+     ```
+   
+     Here, the first three characters represent owner permissions, the next three represent group permissions, and the last three represent permissions for others.
+
+   - For example, `rw-r--r--` means that the owner can read and write the file, while the group and others can only read the file.
+
+5. **Numeric Representation:**
+
+   - File permissions can also be represented using numeric values. For example, `rw-r--r--` is equivalent to `644` in numeric representation.
+   - The numeric values are calculated by assigning a value of 4 for read (`r`), 2 for write (`w`), and 1 for execute (`x`), and then summing these values for the owner, group, and others.
+
+6. **Changing File Permissions:**
+
+   - You can change file permissions using the `chmod` command.
+   - For example, to give read and write permissions to the owner of a file, you can use:
+     ```
+     chmod u+rw filename
+     ```
+
+These file access permissions and user types are essential for ensuring the security and privacy of files and directories in a Linux system. They allow administrators to control who can access and modify data and programs, thus helping protect the system from unauthorized access and misuse.
