@@ -1,0 +1,82 @@
+Certainly! Here are C programs to demonstrate the mentioned thread-related concepts:
+
+(i) Create a Thread:
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+void *thread_function(void *arg) {
+    printf("Thread is created and running!\n");
+    return NULL;
+}
+
+int main() {
+    pthread_t thread;
+    pthread_create(&thread, NULL, thread_function, NULL);
+    pthread_join(thread, NULL);  // Wait for the thread to finish
+    printf("Main thread exiting.\n");
+    return 0;
+}
+```
+
+(ii) Join Threads:
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+void *thread_function(void *arg) {
+    printf("Thread is created and running!\n");
+    return NULL;
+}
+
+int main() {
+    pthread_t thread;
+    pthread_create(&thread, NULL, thread_function, NULL);
+    pthread_join(thread, NULL);  // Wait for the thread to finish
+    printf("Main thread exiting.\n");
+    return 0;
+}
+```
+
+(iii) Check if Threads are Equal:
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+int main() {
+    pthread_t thread1, thread2;
+    pthread_create(&thread1, NULL, NULL, NULL);
+    pthread_create(&thread2, NULL, NULL, NULL);
+    
+    if (pthread_equal(thread1, thread2))
+        printf("The threads are equal.\n");
+    else
+        printf("The threads are not equal.\n");
+    
+    return 0;
+}
+```
+
+(iv) Thread Exit:
+```c
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+
+void *thread_function(void *arg) {
+    printf("Thread is created and running!\n");
+    sleep(2);  // Simulate some work
+    printf("Thread is exiting.\n");
+    pthread_exit(NULL);
+}
+
+int main() {
+    pthread_t thread;
+    pthread_create(&thread, NULL, thread_function, NULL);
+    pthread_join(thread, NULL);  // Wait for the thread to finish
+    printf("Main thread exiting.\n");
+    return 0;
+}
+```
+
+These C programs demonstrate how to create and manage threads, check if threads are equal, and how threads can exit.
